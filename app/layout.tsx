@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Greet } from "./components/greet";
+import { Counter } from "./components/counter";
+import { Navigation } from "./components/navigations";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,13 +27,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {/* <h1 className="text-3xl">Root</h1> */}
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <header className="text-center bg-slate-900 text-white p-5 mb-4">
+            <Navigation />
+          </header>
+          {children}
+          {/* <Greet />
+        <Counter /> */}
+          <footer className="text-3xl text-center text-white bg-slate-900 p-5 mt-4">
+            Hello, Let's start from Begin!!
+          </footer>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
