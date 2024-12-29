@@ -1,6 +1,10 @@
 import React from "react";
 import Error from "../error";
 
+export const metadata = {
+  title: "About Yaswanth Varada",
+};
+
 const page = () => {
   // throw new Error("Something went wrong");
   return (
