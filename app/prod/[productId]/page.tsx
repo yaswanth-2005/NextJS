@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-
 type Props = {
   params: {
     productId: string;
@@ -25,7 +24,9 @@ export default function IndividualProducts({ params }: Props) {
   return (
     <>
       <h2>Details about the product {params.productId}</h2>
-      <Link href="/prod">GO back</Link>
+      <Link href="/prod" className="border border-blue-500 rounded-lg p-2">
+        GO back
+      </Link>
     </>
   );
 }
